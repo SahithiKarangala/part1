@@ -38,11 +38,11 @@ const Statistics = (props) =>{
   const {good,neutral,bad,total,average,percentage} = props
   if (total===0){
     return (
-      <tbody>
+      
       <tr>
         <td>No feedback given</td>
       </tr>
-      </tbody>
+      
     )
   }else{
   return(
@@ -113,12 +113,14 @@ const App = () => {
 
       <Header name={name2} />
       <table>
-      <Statistics good={good}
-                  neutral={neutral}
-                  bad={bad}
-                  total={total}
-                  average={average}
-                  percentage={percentage} />
+        <tbody>
+        <Statistics good={good}
+                    neutral={neutral}
+                    bad={bad}
+                    total={total}
+                    average={average}
+                    percentage={percentage} />
+        </tbody>
       </table>
     </div>
   )
