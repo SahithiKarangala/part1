@@ -19,15 +19,17 @@ const Button = ({onClick, text }) =>{
 const StatisticLine = ({name,value}) =>{
   if(name === 'positive'){
     return (
-    <> 
-      <p>{name} {value} %</p>
-    </>
+    <tr> 
+      <td>{name}</td>
+      <td>{value} %</td>
+    </tr>
   )
   }else{
   return(
-    <> 
-      <p>{name} {value}</p>
-    </>
+    <tr> 
+      <td>{name}</td>
+      <td>{value}</td>
+    </tr>
   )
 }
 }
@@ -36,18 +38,22 @@ const Statistics = (props) =>{
   const {good,neutral,bad,total,average,percentage} = props
   if (total===0){
     return (
-      <p>No feedback given</p>
+      <tbody>
+      <tr>
+        <td>No feedback given</td>
+      </tr>
+      </tbody>
     )
   }else{
   return(
-    <div>
+    <>
       <StatisticLine name='good' value={good}/>
       <StatisticLine name='neutral' value={neutral}/>
       <StatisticLine name='bad' value={bad}/>
       <StatisticLine name='all' value={total}/>
       <StatisticLine name='average' value={average}/>
       <StatisticLine name='positive' value={percentage}/>
-    </div>
+    </>
   )
 }
 }
@@ -106,13 +112,14 @@ const App = () => {
       <Button onClick={badFeedback} text="bad"/>
 
       <Header name={name2} />
+      <table>
       <Statistics good={good}
                   neutral={neutral}
                   bad={bad}
                   total={total}
                   average={average}
                   percentage={percentage} />
-      
+      </table>
     </div>
   )
 }
